@@ -26,7 +26,7 @@ export class BurgerBuilder extends Component {
 
     updatePurchaseState ( ingredients ) {
         const sum = Object.keys( ingredients )
-            .map( igKey => { 
+            .map( igKey => {
                 return ingredients[igKey];
             } )
             .reduce( ( sum, el ) => {
@@ -36,13 +36,12 @@ export class BurgerBuilder extends Component {
     }
 
     purchaseHandler = () => {
-        if ( this.props.isAuthenticated ) {
+        if (this.props.isAuthenticated) {
             this.setState( { purchasing: true } );
         } else {
-            this.props.onSetAuthRedirectPath('/checkout ')
+            this.props.onSetAuthRedirectPath('/checkout');
             this.props.history.push('/auth');
         }
-         
     }
 
     purchaseCancelHandler = () => {
@@ -115,4 +114,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( BurgerBuilder, axios )); 
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( BurgerBuilder, axios ));
