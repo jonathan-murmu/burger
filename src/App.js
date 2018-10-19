@@ -19,6 +19,7 @@ const asyncAuth = asyncComponent(() => {
 });
 class App extends Component {
   componentDidMount () {
+    console.log('auto signing');
     this.props.onTryAutoSignUp();
   }
   render() {
